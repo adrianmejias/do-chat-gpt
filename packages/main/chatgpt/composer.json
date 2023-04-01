@@ -9,10 +9,8 @@
     },
     "require": {
         "orhanerday/open-ai": "^4.7",
-        "vlucas/phpdotenv": "^5.5"
-    },
-    "require-dev": {
-        "pestphp/pest": "^2.3"
+        "vlucas/phpdotenv": "^5.5",
+        "pestphp/pest": "^1.22"
     },
     "config": {
         "allow-plugins": {

@@ -6,6 +6,12 @@ use Dotenv\Dotenv;
 use App\ChatGpt;
 use Orhanerday\OpenAi\OpenAi;
 
+/**
+ * Main function.
+ *
+ * @param array $args
+ * @return array
+ */
 function main(array $args): array
 {
     $dotenv = Dotenv::createMutable(__DIR__);
