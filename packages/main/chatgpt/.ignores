@@ -1,0 +1,4 @@
+build.sh
+tests
+phpunit.xml
+.env.example

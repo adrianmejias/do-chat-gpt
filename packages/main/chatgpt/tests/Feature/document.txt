@@ -1,0 +1,164 @@
+Women – How to Break into AI Career and Succeed | AI Blog
+
+This article was written by Aruna Pattam.
+
+AI is revolutionizing how we live our lives, from healthcare to politics as well as creating a new world of employment opportunities!
+
+Breaking into the AI industry is hard enough as a man, but what about as a woman? In this blog, I will give you helpful tips on how you can break into AI career and succeed!
+
+Topics covered in this blog:
+What is AI and how does it work?
+Six steps for women to break into AI.
+7 Tips for women to succeed in their AI career.
+
+What is AI and how does it work?
+
+You might be wondering what AI is. AI refers to machines that are programmed to perform tasks and solve problems in ways that mimic the human brain.
+
+There are many different types of AI programs: some may answer questions, others may control robots, while still others act as guides for people navigating a space by providing directions or information about nearby locations.
+
+You’re probably wondering how this is relevant to you – well, it’s easier than you think!
+
+Nowadays there are so many things we use every day that rely on AI – your iPhone uses Siri and Google Maps both rely on AI technology; GPS systems use it too!
+
+In fact, almost every day something new relies on AI in one way or another. AI is one of the fastest growing industries in the world. It’s predicted that by 2024, AI will be worth $500 billion.
+
+The jobs in AI will be a hot topic for the next decade. A recent analysis revealed that there are over 2 million AI jobs predicted globally by 2023. The average salary for an AI engineer ranges from $120,000 – $180,000 per year.
+
+Although the job market is looking lucrative for AI, women find it hard to break into. There’s a lack of representation among not only executives but developers and coders as well – no surprise there!
+
+Women should not be detracted from Tech or AI due to the challenges they face. Learning pathways and support networks can help women achieve their dreams, including those of working with AI!
+
+In the next section of the blog, I will provide you helpful tips on not only how to break into the AI industry but also how to stay and succeed in your AI career.
+
+Six steps for women to break into AI
+In this section, I’ll be providing you 6 steps that can help you to break into AI and become one of those wizards at programming robots or designing cyborgs for battle.
+
+Ready? Let’s go!.
+
+Step #1: Learn Python
+
+First and foremost, to be successful in a career with AI, you must have strong programming and data management abilities.
+
+These are important aspects of a successful job in the AI industry, so if you’re interested in getting involved with this field be sure to brush up on your coding and knowledge of databases!
+
+Step #2: Master AI knowledge
+
+Next, it is important for you to develop a good understanding of the basics of machine learning and AI.
+
+This will allow you to understand how these two concepts work, which problems they solve and what their limitations are.
+
+Step #3: Understand the business
+
+For any budding AI developers out there, the first thing you need to do is learn about your business domain and what question needs answering with machine learning.
+
+Then get immersed in the industry so you can become an authority on how best we develop these technologies.
+
+Step #4: AI and Data Science Courses
+
+An easy way to build the skills necessary for the machine-learning and AI field is continuing education.
+
+There are several options and continuing education courses that you can take on your own time!
+
+You don’t have to go through a formal program or pay expensive rates – DataCamp offers similar content in an easy-to-use format. Or if you’re looking for something more traditional like lectures from Udacity.
+
+Step #5: Get Certification
+
+Once you’ve mastered these basics knowledge, get certified in SAS, Azure to name a few, to prove that you know what’s up-to-date.
+
+Also, start looking for projects that you can join to put your knowledge into practice while harnessing new job opportunities from organizations.
+
+Step #6: Be a lifelong learner
+
+AI is a lot like other fields of information technology, in that the key to success comes from continuous learning and training.
+
+Artificial Intelligence, despite its evocative title, is remarkably like other fields in information technology as success comes through continuous learning.”
+
+7 Tips for women to succeed in their AI career
+
+Tip #1: Build your personal brand
+
+You need to be bold and loud in showcasing your capabilities.
+
+If you have done something you are proud of don’t keep it to yourself! Share your experience online, post on LinkedIn or YouTube, write a blog- anything that can help build your personal brand.
+
+This will help you get new opportunities as well as let YOU shape the career the way YOU want.
+
+Tip #2: Have a mentor
+
+Find someone you admire and ask them if they want to be your mentor and can be a sounding board from time-to-time or keep an eye on how your progress is going.
+
+They’ll be able to provide guidance, support, advice–everything you need on the path of success!
+
+Tip #3: Confident body language
+
+Your body language such as posture, gestures and even clothing can say more about you than any words ever could.
+
+It’s an integral part of your personality, and if used correctly can help make sure that what you want to communicate comes across loud and clear.
+
+Tip #4: Build your network
+
+Networking is always beneficial from both a career- and personal-growth perspective.
+
+Women are more likely to attain high-ranking leadership positions if they had a solid support group of other women.
+
+Be part of women’s network such as
+
+Women in AI (WAI), a global network of female experts and professionals.
+
+Women in Data Science (WiDS), to inspire and educate data scientists worldwide.
+
+Thousand Eyes On Me a personal branding and talent development platform.
+
+Tip #5: Develop a “Growth Mindset”
+
+Having a growth mindset is the key to unlocking possibilities that you never thought were possible.
+
+This means going outside of your core expertise and exploring different fields like interest or other skill sets.
+
+Tip #6: Keep up with current events
+Explore industry research and reports from the various AI technology news such as:
+
+Emerj – a market research firm,
+
+MITcommunicating AI news,
+
+Medium – an open platform that shares AI related articles,
+
+TowardsDataScience – for past, present and where future of AI is headed and
+
+Forbes – for AI related latest trends and advancements.
+
+Tip #7: Be part of community
+
+Be part of the data science community to learn about AI, Machine Learning and Data Science and create projects.
+
+Some key ones you can be involved with are:
+
+Kaggle, a machine learning and data science community
+
+KDnuggets, community to learn about machine learning, data science, big data, analytics and AI
+
+Data Science Central, community of and for data scientist.
+
+You can also refer to my LinkedIn profile or my AI YouTube channel to watch some informative videos I constantly create on AI.
+
+To Conclude
+
+AI industry is growing rapidly and the demand for qualified professionals has never been higher.
+
+As a woman, you may face additional challenges to break into this competitive field of work.
+
+However, with these tips I hope that success will be attainable for all women interested in careers with AI.
+
+Whether your end goal is entry level or executive management–or something else entirely–I hope that these resources will help empower you along your journey towards breaking through the glass ceiling of AI!
+
+Where are you in the journey to AI career? Did you find the tips in this blog useful? Do any resonate more than others?
+
+Let us know what’s next on your agenda as we embark together onto our shared future…in Artificial Intelligence!
+
+I wish you all the very best in your AI Career.
+
+Aruna Pattam heads the AI & Data Science practice at HCL Technologies for Asia Pacific and Middle East region based at Sydney. She regularly shares informative blogs, storytelling videos etc. aimed at demystifying AI and about Women in AI and Data Science.
+
+See: https://thousandeyeson.me/women-how-to-break-into-ai-career-and-succeed-ai-blog/
