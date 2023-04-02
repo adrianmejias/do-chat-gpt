@@ -17,7 +17,7 @@ function main(array $args): array
     $dotenv = Dotenv::createMutable(__DIR__);
     $dotenv->safeLoad();
 
-    $openAiKey = env('OPENAI_API_KEY', '');
+    $openAiKey = $_ENV['OPENAI_API_KEY'] ?? env('OPENAI_API_KEY', '');
 
     if (empty($openAiKey)) {
         return [
@@ -27,7 +27,7 @@ function main(array $args): array
         ];
     }
 
-    $systemMessage = env('SYSTEM_MESSAGE', '');
+    $systemMessage = $_ENV['SYSTEM_MESSAGE'] ?? env('SYSTEM_MESSAGE', '');
 
     if (empty($systemMessage)) {
         return [
