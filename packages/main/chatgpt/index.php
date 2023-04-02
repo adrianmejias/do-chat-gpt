@@ -14,10 +14,10 @@ use Orhanerday\OpenAi\OpenAi;
  */
 function main(array $args): array
 {
-    $dotenv = Dotenv::createMutable(__DIR__);
+    $dotenv = Dotenv::createImmutable(__DIR__);
     $dotenv->safeLoad();
 
-    $openAiKey = getenv('OPENAI_API_KEY'); // env('OPENAI_API_KEY', '');
+    $openAiKey = env('OPENAI_API_KEY', '');
 
     if (empty($openAiKey)) {
         return [
@@ -27,7 +27,7 @@ function main(array $args): array
         ];
     }
 
-    $systemMessage = getenv('SYSTEM_MESSAGE'); // env('SYSTEM_MESSAGE', '');
+    $systemMessage = env('SYSTEM_MESSAGE', '');
 
     if (empty($systemMessage)) {
         return [
