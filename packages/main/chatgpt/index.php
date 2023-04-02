@@ -22,7 +22,7 @@ function main(array $args): array
     if (empty($openAiKey)) {
         return [
             'body' => [
-                'error' => 'No OpenAI API key provided.'.print_r($args, true),
+                'error' => 'No OpenAI API key provided.',
             ],
         ];
     }
