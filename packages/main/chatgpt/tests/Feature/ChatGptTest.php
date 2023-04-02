@@ -3,8 +3,8 @@
 namespace Tests\Feature;
 
 use App\ChatGpt;
-use Orhanerday\OpenAi\OpenAi;
 use Illuminate\Support\Collection;
+use Orhanerday\OpenAi\OpenAi;
 
 beforeEach(function () {
     $openAiKey = env('OPENAI_API_KEY', '');
@@ -57,7 +57,9 @@ test('if chatgpt can get document parts', function () {
 });
 
 test('if chatgpt can communicate', function () {
-    $response = $this->chatgpt->communicate('What programming languages should I learn if I want to program AI?');
+    $response = $this->chatgpt->communicate(
+        'What programming languages should I learn if I want to program AI?'
+    );
     expect($response)->toBeString()->not()->toBeEmpty();
 });
 

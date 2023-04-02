@@ -2,12 +2,11 @@
 
 namespace App;
 
+use App\Contracts\ChatGptContract;
 use Exception;
 use Illuminate\Support\Arr;
-use Illuminate\Support\Str;
 use Illuminate\Support\Collection;
 use Orhanerday\OpenAi\OpenAi;
-use App\Contracts\ChatGptContract;
 
 final class ChatGpt implements ChatGptContract
 {
@@ -31,7 +30,9 @@ final class ChatGpt implements ChatGptContract
     public function addDocument(array $document): string|array
     {
         $documents = Collection::make($this->getDocuments());
-        $existingDocument = $documents->filter(fn ($doc) => $doc['name'] === $document['name']);
+        $existingDocument = $documents->filter(
+            fn ($doc) => $doc['name'] === $document['name']
+        );
 
         if ($existingDocument->count() > 0) {
             return [
