@@ -1,61 +1,59 @@
 <?php
 
-use Dotenv\Dotenv;
+namespace Tests\Feature;
+
 use App\ChatGpt;
 use Orhanerday\OpenAi\OpenAi;
-
-$dotenv = Dotenv::createMutable(__DIR__);
-$dotenv->safeLoad();
+use Illuminate\Support\Collection;
 
 beforeEach(function () {
-    $this->openAiKey = env('OPENAI_API_KEY', '');
-    $this->systemMessage = env('SYSTEM_MESSAGE', '');
+    $openAiKey = env('OPENAI_API_KEY', '');
+    $systemMessage = env('SYSTEM_MESSAGE', '');
 
-    $this->openAi = new OpenAi($this->openAiKey);
-    $this->chatgpt = new ChatGpt($this->openAi, $this->systemMessage);
+    $openAi = new OpenAi($openAiKey);
+    $this->chatgpt = new ChatGpt($openAi, $systemMessage);
+
+    $document = __DIR__ . '/document.txt';
+    $this->document = [
+        'name' => basename($document),
+        'tmp_name' => $document,
+        'size' => filesize($document),
+    ];
 
     $_SESSION['documents'] = [];
 });
 
-test('if open ai key is not empty', function () {
-    expect($this->openAiKey)->not()->toBeEmpty();
-});
-
-test('if system message is not empty', function () {
-    expect($this->systemMessage)->not()->toBeEmpty();
-});
-
-test('if chatgpt can be created', function () {
+test('if chatgpt is loaded', function () {
     expect($this->chatgpt)->toBeInstanceOf(ChatGpt::class);
 });
 
 test('if chatgpt can add document', function () {
-    $this->chatgpt->addDocument([
-        'name' => 'document.txt',
-        'tmp_name' => __DIR__ . '/document.txt',
-        'size' => filesize(__DIR__ . '/document.txt'),
-    ]);
+    $this->chatgpt->addDocument($this->document);
     expect($_SESSION['documents'])->toBeArray()->not()->toBeEmpty();
 });
 
+test('if chatgpt can add document with same name', function () {
+    $this->chatgpt->addDocument($this->document);
+    $response = $this->chatgpt->addDocument($this->document);
+    expect($response)->toBeArray()->toHaveKey('error');
+});
+
 test('if chatgpt can get documents', function () {
-    $this->chatgpt->addDocument([
-        'name' => 'document.txt',
-        'tmp_name' => __DIR__ . '/document.txt',
-        'size' => filesize(__DIR__ . '/document.txt'),
-    ]);
+    $this->chatgpt->addDocument($this->document);
     $documents = $this->chatgpt->getDocuments();
     expect($documents)->toBeArray()->not()->toBeEmpty();
 });
 
 test('if chatgpt can clear documents', function () {
-    $this->chatgpt->addDocument([
-        'name' => 'document.txt',
-        'tmp_name' => __DIR__ . '/document.txt',
-        'size' => filesize(__DIR__ . '/document.txt'),
-    ]);
+    $this->chatgpt->addDocument($this->document);
     $this->chatgpt->clearDocuments();
     expect($_SESSION['documents'])->toBeArray()->toBeEmpty();
+});
+
+test('if chatgpt can get document parts', function () {
+    $this->chatgpt->addDocument($this->document);
+    $documentParts = $this->chatgpt->getDocumentParts();
+    expect($documentParts)->toBeInstanceOf(Collection::class)->not()->toBeEmpty();
 });
 
 test('if chatgpt can communicate', function () {
@@ -64,11 +62,7 @@ test('if chatgpt can communicate', function () {
 });
 
 test('if chatgpt can communicate with documents', function () {
-    $this->chatgpt->addDocument([
-        'name' => 'document.txt',
-        'tmp_name' => __DIR__ . '/document.txt',
-        'size' => filesize(__DIR__ . '/document.txt'),
-    ]);
+    $this->chatgpt->addDocument($this->document);
     $response = $this->chatgpt->communicate('Should I get certified?');
     expect($response)->toBeString()->not()->toBeEmpty();
 });

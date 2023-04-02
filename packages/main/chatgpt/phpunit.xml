@@ -16,6 +16,8 @@
         </include>
     </coverage>
     <php>
+        <env name="APP_ENV" value="testing"/>
+        <env name="APP_DEBUG" value="true"/>
         <env name="OPENAI_API_KEY" value=""/>
         <env name="SYSTEM_MESSAGE" value="You are a professional career advisor with 20 years under your belt. You have been helping young women (20-30) find their dream jobs."/>
     </php>

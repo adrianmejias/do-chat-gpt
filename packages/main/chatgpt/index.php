@@ -17,7 +17,7 @@ function main(array $args): array
     $dotenv = Dotenv::createMutable(__DIR__);
     $dotenv->safeLoad();
 
-    $openAiKey = env('OPENAI_API_KEY');
+    $openAiKey = env('OPENAI_API_KEY', '');
 
     if (empty($openAiKey)) {
         return [

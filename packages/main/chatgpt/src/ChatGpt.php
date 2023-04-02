@@ -3,11 +3,16 @@
 namespace App;
 
 use Exception;
+use Illuminate\Support\Arr;
+use Illuminate\Support\Str;
+use Illuminate\Support\Collection;
+use Orhanerday\OpenAi\OpenAi;
+use App\Contracts\ChatGptContract;
 
 final class ChatGpt implements ChatGptContract
 {
     public function __construct(
-        public \Orhanerday\OpenAi\OpenAi $openAi,
+        public OpenAi $openAi,
         public string $systemMessage
     ) {
         if (empty($this->systemMessage)) {
@@ -25,9 +30,10 @@ final class ChatGpt implements ChatGptContract
 
     public function addDocument(array $document): string|array
     {
-        $exists = array_filter($this->getDocuments(), fn ($doc) => $doc['name'] === $document['name']);
+        $documents = Collection::make($this->getDocuments());
+        $existingDocument = $documents->filter(fn ($doc) => $doc['name'] === $document['name']);
 
-        if (count($exists) > 0) {
+        if ($existingDocument->count() > 0) {
             return [
                 'error' => 'Document already exists: ' . $document['name'],
             ];
@@ -36,6 +42,7 @@ final class ChatGpt implements ChatGptContract
         $_SESSION['documents'][] = [
             'name' => $document['name'],
             'content' => file_get_contents($document['tmp_name']),
+            'size' => $document['size'],
         ];
 
         return 'Document added: ' . $document['name'];
@@ -51,8 +58,27 @@ final class ChatGpt implements ChatGptContract
         $_SESSION['documents'] = [];
     }
 
+    public function getDocumentParts(): Collection
+    {
+        $documents = Collection::make($this->getDocuments());
+
+        if ($documents->count() > 0) {
+            return $documents->map(function ($document) {
+                return str_split($document['content'], 2048);
+            });
+        }
+
+        return Collection::make([]);
+    }
+
     public function communicate(string $content): string|array
     {
+        if (empty($content)) {
+            return [
+                'error' => 'Content is empty.',
+            ];
+        }
+
         $chatMessages = [];
 
         $chatMessages[] = [
@@ -60,22 +86,14 @@ final class ChatGpt implements ChatGptContract
             'content' => $this->systemMessage,
         ];
 
-        $documents = $this->getDocuments();
-
-        if (count($documents) > 0) {
-            foreach ($documents as $document) {
-                $parts = mb_str_split($document['content'], 2048);
-
-                if (count($parts) > 1) {
-                    foreach ($parts as $part) {
-                        $chatMessages[] = [
-                            'role' => 'user',
-                            'content' => $part,
-                        ];
-                    }
-                }
-            }
-        }
+        $this->getDocumentParts()->each(function ($part) use (&$chatMessages) {
+            Collection::make($part)->each(function ($part) use (&$chatMessages) {
+                $chatMessages[] = [
+                    'role' => 'user',
+                    'content' => $part,
+                ];
+            });
+        });
 
         $chatMessages[] = [
             'role' => 'user',
@@ -90,17 +108,17 @@ final class ChatGpt implements ChatGptContract
                 'max_tokens' => 1024,
                 'frequency_penalty' => 0,
                 'presence_penalty' => 0,
-                'user' => getClientIp(),
             ]);
         } catch (Exception $e) {
             return [
-                'error' => $e->getMessage()
+                'error' => $e->getMessage(),
             ];
         }
 
-        $response = json_decode($chat);
-        $assistantMessage =  $response->choices[0]->message->content ?? '';
+        if ($response = json_decode($chat, true)) {
+            return Arr::get($response, 'choices.0.message.content', '');
+        }
 
-        return $assistantMessage;
+        return '';
     }
 }

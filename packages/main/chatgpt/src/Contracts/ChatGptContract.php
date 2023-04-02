@@ -1,18 +1,11 @@
 <?php
 
-namespace App;
+namespace App\Contracts;
+
+use Illuminate\Support\Collection;
 
 interface ChatGptContract
 {
-    /**
-     * Constructor
-     *
-     * @param \Orhanerday\OpenAi\OpenAi $openAi
-     * @param string $systemMessage
-     * @return void
-     */
-    public function __construct(\Orhanerday\OpenAi\OpenAi $openAi, string $systemMessage);
-
     /**
      * Add document to session
      *
@@ -34,6 +27,13 @@ interface ChatGptContract
      * @return void
      */
     public function clearDocuments(): void;
+
+    /**
+     * Get document parts
+     *
+     * @return \Illuminate\Support\Collection<string>
+     */
+    public function getDocumentParts(): Collection;
 
     /**
      * Communicate with OpenAI
